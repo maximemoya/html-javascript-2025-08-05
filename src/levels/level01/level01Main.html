@@ -71,7 +71,7 @@
             👉 Lire une Prière en HolyC
         </span>
 
-        <span class="option" onclick="enterMeditationGame()">
+        <span class="option" onclick="enterMeditation()">
             🛐 Méditer devant le Temple
         </span>
 
@@ -96,11 +96,11 @@
             window.location.href = "./priestHolyC/verse01.html";
         }, 500);
     }
-    function enterMeditationGame() {
+    function enterMeditation() {
         const bip = document.getElementById("bip");
         if (bip) { bip.volume = 0.2; bip.play(); }
         setTimeout(() => {
-            window.location.href = "./meditationGame/meditationGame.html";
+            window.location.href = "./meditation/meditation.html";
         }, 500);
     }
     function enterChallenge() {

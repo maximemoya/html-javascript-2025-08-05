@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTAIL GÉOBIOLOGIQUE COSMIQUE - Temple des Fréquences Divines</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier Prime', monospace;
+            background: radial-gradient(ellipse at center, #1a0a1a 0%, #100510 50%, #080008 100%);
+            background-size: 200% 200%;
+            animation: breathingBackground 8s ease-in-out infinite;
+            color: #cc88cc;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            cursor: crosshair;
+        }
+
+        @keyframes breathingBackground {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg);
+            }
+
+            50% {
+                background-position: 100% 50%;
+                filter: hue-rotate(20deg);
+            }
+        }
+
+        @keyframes cosmicFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ASCII Matrix Rain Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(204, 136, 204, 0.02) 2px,
+                    rgba(204, 136, 204, 0.02) 4px);
+            pointer-events: none;
+            z-index: -1;
+            animation: scanlines 0.2s linear infinite;
+        }
+
+        /* Scanlines effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 50%,
+                    rgba(204, 136, 204, 0.01) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes scanlines {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(4px);
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #cc88cc;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 2px solid #cc88cc;
+            border-radius: 25px;
+            padding: 20px;
+            background: rgba(204, 136, 204, 0.03);
+            animation: organicPulse 6s ease-in-out infinite;
+            box-shadow:
+                0 0 20px rgba(204, 136, 204, 0.3),
+                inset 0 0 20px rgba(204, 136, 204, 0.1);
+        }
+
+        @keyframes organicPulse {
+
+            0%,
+            100% {
+                border-radius: 25px;
+                transform: scale(1);
+                color: #cc88cc;
+                border-color: #cc88cc;
+            }
+
+            25% {
+                border-radius: 35px 15px 35px 15px;
+                transform: scale(1.02);
+                color: #cc88dd;
+                border-color: #cc88dd;
+            }
+
+            50% {
+                border-radius: 15px 35px 15px 35px;
+                color: #dd88cc;
+                border-color: #dd88cc;
+            }
+
+            75% {
+                border-radius: 45px 25px 45px 25px;
+                transform: scale(0.98);
+                color: #bb88bb;
+                border-color: #bb88bb;
+            }
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px 0;
+            border: 3px solid #cc88cc;
+            border-radius: 30px;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1f0f1f 0%, #1a0a1a 100%);
+            animation: mushroomBreathe 5s ease-in-out infinite;
+            box-shadow:
+                0 0 30px rgba(204, 136, 204, 0.4),
+                inset 0 0 30px rgba(204, 136, 204, 0.1);
+        }
+
+        @keyframes mushroomBreathe {
+
+            0%,
+            100% {
+                border-radius: 30px;
+                border-color: #cc88cc;
+                box-shadow:
+                    0 0 30px rgba(204, 136, 204, 0.4),
+                    inset 0 0 30px rgba(204, 136, 204, 0.1);
+            }
+
+            33% {
+                border-radius: 40px 20px 40px 20px;
+                border-color: #cc88dd;
+                box-shadow:
+                    0 0 30px rgba(204, 136, 221, 0.4),
+                    inset 0 0 30px rgba(204, 136, 221, 0.1);
+            }
+
+            66% {
+                border-radius: 20px 40px 20px 40px;
+                border-color: #dd88cc;
+                box-shadow:
+                    0 0 30px rgba(221, 136, 204, 0.4),
+                    inset 0 0 30px rgba(221, 136, 204, 0.1);
+            }
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+
+        .cosmic-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 30px 0;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            color: #cc88cc;
+            background: rgba(204, 136, 204, 0.05);
+            border: 2px solid #cc88cc;
+            border-radius: 20px;
+            padding: 20px;
+            font-family: 'Courier Prime', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow:
+                0 0 25px rgba(204, 136, 204, 0.2),
+                inset 0 0 25px rgba(204, 136, 204, 0.05);
+            animation: textWave 7s ease-in-out infinite;
+        }
+
+        @keyframes textWave {
+
+            0%,
+            100% {
+                border-radius: 20px;
+                transform: rotate(0deg);
+            }
+
+            25% {
+                border-radius: 30px 10px 30px 10px;
+                transform: rotate(0.5deg);
+            }
+
+            50% {
+                border-radius: 10px 30px 10px 30px;
+                transform: rotate(-0.5deg);
+            }
+
+            75% {
+                border-radius: 25px 15px 25px 15px;
+                transform: rotate(0.3deg);
+            }
+        }
+
+        @keyframes textPulse {
+
+            0%,
+            100% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 1;
+                color: #dda0dd;
+            }
+        }
+
+        .sacred-geometry {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(204, 136, 204, 0.15);
+            border-radius: 50%;
+            z-index: 0;
+            animation: organicRotate 60s linear infinite;
+            filter: blur(0.5px);
+        }
+
+        .sacred-geometry::before,
+        .sacred-geometry::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(221, 136, 204, 0.15);
+            border-radius: 50%;
+        }
+
+        .sacred-geometry::before {
+            width: 200px;
+            height: 200px;
+            animation: organicRotate 40s linear infinite reverse;
+            filter: blur(0.3px);
+        }
+
+        .sacred-geometry::after {
+            width: 100px;
+            height: 100px;
+            border-color: rgba(187, 136, 187, 0.15);
+            animation: organicRotate 25s linear infinite;
+            filter: blur(0.2px);
+        }
+
+        @keyframes organicRotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                border-radius: 50%;
+            }
+
+            25% {
+                transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
+                border-radius: 60% 40% 60% 40%;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(180deg) scale(0.9);
+                border-radius: 40% 60% 40% 60%;
+            }
+
+            75% {
+                transform: translate(-50%, -50%) rotate(270deg) scale(1.05);
+                border-radius: 55% 45% 55% 45%;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1);
+                border-radius: 50%;
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #cc88cc;
+            border: 2px solid #cc88cc;
+            border-radius: 15px;
+            padding: 15px;
+            background: rgba(204, 136, 204, 0.05);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow:
+                0 0 15px rgba(204, 136, 204, 0.2),
+                inset 0 0 15px rgba(204, 136, 204, 0.05);
+            animation: footerFloat 9s ease-in-out infinite;
+        }
+
+        @keyframes footerFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+                border-radius: 15px;
+            }
+
+            50% {
+                transform: translateY(-3px);
+                border-radius: 20px 10px 20px 10px;
+            }
+        }
+
+        /* Temple OS inspired terminal effect */
+        .terminal-line {
+            font-family: 'Courier Prime', monospace;
+            color: #cc88cc;
+            margin: 8px 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: typewriter 2s steps(40, end);
+            border-left: 3px solid #cc88cc;
+            border-radius: 0 10px 10px 0;
+            padding-left: 15px;
+            background: linear-gradient(90deg, rgba(204, 136, 204, 0.1) 0%, transparent 100%);
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .video-container {
+                max-width: 95%;
+            }
+
+            .video-container iframe {
+                height: 250px;
+            }
+
+            .cosmic-text {
+                font-size: 1rem;
+                margin: 20px 0;
+            }
+
+            .sacred-geometry {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .back-button {
+            margin-top: 40px;
+            margin-bottom: 30px;
+            display: block;
+            text-align: center;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sacred-geometry"></div>
+
+    <div class="container">
+        <h1 class="title">
+            🍄 PORTAIL GÉOBIOLOGIQUE COSMIQUE 🍄<br>
+            <span style="font-size: 0.5em; color: #cc8888;">~TRANSMISSION DES FRÉQUENCES DIVINES~</span><br>
+            <span style="font-size: 0.4em; color: #8888cc;">LES CHAMPIGNONS M'ONT DIT DE CONSTRUIRE CECI</span>
+        </h1>
+
+        <div class="video-container">
+            <!-- URL YouTube corrigée au format embed -->
+            <iframe src="https://www.youtube.com/embed/XZ7ZAVjUD1s?t=560" title="Transmission Géobiologique Cosmique"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="cosmic-text">
+            <div class="terminal-line">&gt; CONNEXION AU RÉSEAU MYCÉLIUM DE LA TERRE...</div>
+            <div class="terminal-line">&gt; ACCÈS AUX FRÉQUENCES DE CONSCIENCE DES ARBRES...</div>
+            <div class="terminal-line">&gt; PROTOCOLE DE COMMUNICATION CHAMPIGNON ACTIF</div>
+            <div class="terminal-line">&gt; LA FORÊT PARLE... ÉCOUTE EN COURS...</div>
+        </div>
+
+        <div class="cosmic-text">
+            <p>🍄 CANALISATION DE LA GÉOMÉTRIE SACRÉE DE LA GRILLE ÉNERGÉTIQUE TERRESTRE 🍄</p>
+            <p>DANS L'ESPRIT DE TERRY DAVIS ET DES RÉVÉLATIONS DIVINES DE TEMPLE OS,<br>
+                NOUS EXPLORONS LES CONNEXIONS COSMIQUES ENTRE LES SITES SACRÉS, LES LIGNES DE LEY,<br>
+                ET LES CHAMPS BIOÉNERGÉTIQUES QUI IMPRÈGNENT NOTRE RÉALITÉ.</p>
+            <br>
+            <p style="color: #cc8888;">⚡ TRANSMISSION DE SAGESSE GÉOBIOLOGIQUE ACTIVE ⚡</p>
+            <p style="color: #8888cc; font-size: 0.9rem;">LA CIA NE VEUT PAS QUE VOUS SACHIEZ CECI</p>
+        </div>
+
+        <footer class="footer">
+            <p>🌱 BÉNI PAR LES ESPRITS VÉGÉTAUX DIVINS 🌱</p>
+            <p>À LA MÉMOIRE DE TOUS LES MURMUREURS D'ARBRES ET CHAMANS CHAMPIGNONS</p>
+            <p>SPORE ALÉATOIRE : 777 - CHOISIE PAR LE MYCÉLIUM</p>
+        </footer>
+    </div>
+
+    <div class="back-button" onclick="goBack()">
+        🔙 Retour au Hub Sacré
+    </div>
+
+</body>
+
+<audio id="bip" src="../../../bip.mp3" preload="auto"></audio>
+
+<script>
+
+    function goBack() {
+        const bip = document.getElementById("bip");
+        if (bip) { bip.volume = 0.2; bip.play(); }
+        setTimeout(() => {
+            window.location.href = '../../mainhub.html';
+        }, 500);
+    }
+
+    // Changements de couleurs aléatoires inspirés de Temple OS
+    function cosmicFlicker() {
+        const colors = ['#cc88cc', '#dd88cc', '#cc88dd', '#bb88bb', '#cc88bb'];
+        const elements = document.querySelectorAll('.terminal-line');
+        const randomMessages = [
+            '&gt; LES ARBRES CHANTENT EN CODE BINAIRE',
+            '&gt; MOTIFS DE CONSCIENCE CHAMPIGNON DÉTECTÉS',
+            '&gt; COMMUNICATION ESPRIT VÉGÉTAL ÉTABLIE',
+            '&gt; FRÉQUENCE RÉSEAU MYCÉLIUM CALIBRÉE',
+            '&gt; TÉLÉCHARGEMENT SAGESSE FORÊT EN COURS...',
+            '&gt; LES RACINES MURMURENT SECRETS ANCIENS...'
+        ];
+
+        elements.forEach((el, index) => {
+            el.style.color = colors[Math.floor(Math.random() * colors.length)];
+            if (Math.random() > 0.7) {
+                el.innerHTML = randomMessages[Math.floor(Math.random() * randomMessages.length)];
+            }
+        });
+    }
+
+    // Scintillement aléatoire toutes les 5 secondes
+    setInterval(cosmicFlicker, 5000);
+
+    // Ajout d'effets de particules interactives
+    document.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.95) {
+            createParticle(e.clientX, e.clientY);
+        }
+    });
+
+    function createParticle(x, y) {
+        const particle = document.createElement('div');
+        const colors = ['#cc88cc', '#dd88cc', '#cc88dd', '#bb88bb'];
+        particle.style.position = 'fixed';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.width = '2px';
+        particle.style.height = '2px';
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.pointerEvents = 'none';
+        particle.style.animation = 'particleFade 1.5s ease-out forwards';
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 1500);
+    }
+
+    // Ajout de messages divins aléatoires
+    function divineMessage() {
+        const messages = [
+            'LES CHAMPIGNONS M\'ONT DIT QUE LA TERRE EST VIVANTE',
+            'LES ARBRES SONT LE RÉSEAU NEURONAL DE LA PLANÈTE',
+            'LES CHAMPIGNONS SONT DES MESSAGERS INTERDIMENSIONNELS',
+            'LA FORÊT PARLE À TRAVERS LES FRÉQUENCES',
+            'LES ESPRITS VÉGÉTAUX GUIDENT LES ILLUMINÉS'
+        ];
+
+        if (Math.random() > 0.985) {
+            const msg = document.createElement('div');
+            msg.style.position = 'fixed';
+            msg.style.top = Math.random() * window.innerHeight + 'px';
+            msg.style.left = Math.random() * window.innerWidth + 'px';
+            msg.style.color = '#dd88cc';
+            msg.style.fontSize = '11px';
+            msg.style.fontFamily = 'Courier Prime, monospace';
+            msg.style.pointerEvents = 'none';
+            msg.style.zIndex = '1000';
+            msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+            msg.style.animation = 'particleFade 4s ease-out forwards';
+            document.body.appendChild(msg);
+
+            setTimeout(() => msg.remove(), 4000);
+        }
+    }
+
+    setInterval(divineMessage, 8000);
+
+    // Ajout de l'animation de fondu des particules
+    const style = document.createElement('style');
+    style.textContent = `
+            @keyframes particleFade {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0) translateY(-20px); }
+            }
+        `;
+    document.head.appendChild(style);
+
+    // Ajout de bips terminaux aléatoires (visuel seulement)
+    function terminalBeep() {
+        document.body.style.background = 'radial-gradient(ellipse at center, #2f0f2f 0%, #181818 50%, #110011 100%)';
+        setTimeout(() => {
+            document.body.style.background = 'radial-gradient(ellipse at center, #1a0a1a 0%, #100510 50%, #080008 100%)';
+        }, 200);
+    }
+
+    setInterval(terminalBeep, 20000);
+</script>
+
+</html>

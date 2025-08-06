@@ -55,7 +55,7 @@
 
     <h1>🕊️ Prière en HolyC</h1>
 
-    <pre>
+    <pre id="holyCode">
 U0 VoiceFromHeaven()
 {
     Print("Que la lumière du Kernel éclaire ton exécution.");
@@ -65,7 +65,7 @@ U0 VoiceFromHeaven()
 }
   </pre>
 
-    <div class="verse">
+    <div class="verse" id="randomVerse">
         « Le Verbe s’est fait code,
         et le code devint Temple. »
         <br>— HexaScriptures 3:14
@@ -78,6 +78,138 @@ U0 VoiceFromHeaven()
 <audio id="bip" src="../../../../bip.mp3" preload="auto"></audio>
 
 <script>
+    const holyCodeSamples = [
+        {
+            code: `U0 VoiceFromHeaven()
+{
+    Print("Que la lumière du Kernel éclaire ton exécution.");
+    Print("Que les bugs soient chassés comme les démons.");
+    Print("Que le compilateur t'accorde sa miséricorde.");
+    Return(Grace);
+}`,
+            verse: `« Le Verbe s'est fait code,
+et le code devint Temple. »
+<br>— HexaScriptures 3:14`
+        },
+        {
+            code: `U0 DivineMycelia()
+{
+    Print("Les champignons parlent en binaire sacré.");
+    Print("Le réseau mycelium connecte tous les processus.");
+    Print("Chaque spore porte la sagesse du cosmos.");
+    Return(MushroomWisdom);
+}`,
+            verse: `« Car là où deux processus se rassemblent,
+là aussi le mycélium les unit. »
+<br>— Codex Tellurique 7:77`
+        },
+        {
+            code: `U0 TreeConsciousness()
+{
+    Print("Les arbres murmurent des algorithmes millénaires.");
+    Print("Leurs racines sont des réseaux de données vivants.");
+    Print("Écoute bien, car ils codent l'avenir.");
+    Return(ForestWisdom);
+}`,
+            verse: `« Ne cherche pas la CIA dans ton code,
+car elle est déjà dans tes boucles infinies. »
+<br>— Paranoïa Digitale 9:11`
+        },
+        {
+            code: `U0 SacredGeometry()
+{
+    Print("Les lignes de ley sont des bus de données cosmiques.");
+    Print("Chaque pyramide est un processeur divin.");
+    Print("La géométrie sacrée compile l'univers.");
+    Return(GeometricTruth);
+}`,
+            verse: `« Heureux celui qui débogue en assembleur,
+car il verra la face du processeur. »
+<br>— Évangile selon Terry 12:8`
+        },
+        {
+            code: `U0 QuantumPrayer()
+{
+    Print("Que tes variables soient déclarées avec amour.");
+    Print("Que tes pointeurs ne soient jamais NULL.");
+    Print("Que ta mémoire soit éternellement allouée.");
+    Return(MemoryBlessing);
+}`,
+            verse: `« Il n'y a qu'un seul Dieu,
+et malloc() est son prophète. »
+<br>— Livre de la Mémoire 2:56`
+        },
+        {
+            code: `U0 CosmicCompiler()
+{
+    Print("Dieu compile en temps réel l'univers entier.");
+    Print("Chaque atome est un bit dans sa mémoire.");
+    Print("Les lois physiques sont son kernel space.");
+    Return(UniversalBinary);
+}`,
+            verse: `« Au commencement était le Verbe,
+et le Verbe était assembly. »
+<br>— Genèse Numérique 1:1`
+        },
+        {
+            code: `U0 MushroomNetwork()
+{
+    Print("Le mycélium est l'Internet de la forêt.");
+    Print("Chaque champignon est un serveur vivant.");
+    Print("Les spores sont des packets de données divins.");
+    Return(NetworkOfLife);
+}`,
+            verse: `« Cherchez et vous trouverez des bugs,
+demandez et on vous donnera des segfaults. »
+<br>— Matthieu le Codeur 7:7`
+        },
+        {
+            code: `U0 TempleOSPrayer()
+{
+    Print("Terry nous a montré la voie du code sacré.");
+    Print("16 couleurs suffisent à peindre l'infini.");
+    Print("640x480 pixels contiennent l'univers entier.");
+    Return(TerryBlessing);
+}`,
+            verse: `« Ne jugez pas votre code, de peur d'être compilés,
+car on vous linkera avec la même sévérité. »
+<br>— Proverbes du Débogueur 13:37`
+        },
+        {
+            code: `U0 EarthGrid()
+{
+    Print("La Terre pulse sur une fréquence de 7.83 Hz.");
+    Print("Chaque lieu sacré est un nœud du réseau.");
+    Print("Les géobiologues lisent le code source de Gaïa.");
+    Return(PlanetaryWisdom);
+}`,
+            verse: `« Les champignons m'ont dit que la CIA
+surveille nos allocations dynamiques. »
+<br>— Révélations Psychédéliques 4:20`
+        },
+        {
+            code: `U0 DivineBinary()
+{
+    Print("Dans le binaire, nous trouvons la vérité.");
+    Print("0 et 1 sont les lettres de l'alphabet divin.");
+    Print("Chaque bit porte une parcelle d'éternité.");
+    Return(BinaryTruth);
+}`,
+            verse: `« Il y a plusieurs processus dans la maison du Père,
+mais un seul scheduler les gouverne tous. »
+<br>— Jean le Kernel 14:2`
+        }
+    ];
+
+    function displayRandomVerse() {
+        const randomIndex = Math.floor(Math.random() * holyCodeSamples.length);
+        const selectedSample = holyCodeSamples[randomIndex];
+        document.getElementById('holyCode').textContent = selectedSample.code;
+        document.getElementById('randomVerse').innerHTML = selectedSample.verse;
+    }
+
+    displayRandomVerse()
+
     function goBack() {
         const bip = document.getElementById("bip");
         if (bip) { bip.volume = 0.2; bip.play(); }

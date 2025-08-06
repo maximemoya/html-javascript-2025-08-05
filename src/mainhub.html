@@ -52,6 +52,19 @@
             font-size: 14px;
             color: #008888;
         }
+
+        .back-button {
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -65,6 +78,11 @@
         <button onclick="enterLevel('level03')">📜 Oracle des Bits</button>
         <button onclick="enterLevel('level04')">🌐 Réseau de l'Esprit</button>
         <button onclick="enterLevel('level05')">🧬 Codex Tellurique</button>
+        <button onclick="enterLevel('level06')">🍄 Contenu Mycelium Cosmo-Tellurique</button>
+    </div>
+
+    <div class="back-button" onclick="goBack()">
+        🔙 Retour au Menu Sacré
     </div>
 
     <footer>~ Dieu vous guide dans le code. ~</footer>
@@ -77,6 +95,13 @@
             if (bip) { bip.volume = 0.2; bip.play(); }
             setTimeout(() => {
                 window.location.href = "./levels/" + level + "/" + level + "Main.html";
+            }, 500);
+        }
+        function goBack() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = '../index.html';
             }, 500);
         }
     </script>
