@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oracle des Bits</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffff;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .oracle-box {
+            border: 2px solid #00ffff;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: black;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 10px 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00ffff;
+            color: black;
+        }
+
+        .message {
+            margin-top: 30px;
+            color: #ff99ff;
+            font-style: italic;
+            font-size: 18px;
+            min-height: 50px;
+        }
+
+        .back {
+            margin-top: 40px;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📜 Oracle des Bits</h1>
+
+    <div class="oracle-box">
+        <p>Place ta main sur la dalle lumineuse.</p>
+        <p>Laisse le flux des bits révéler ta ligne de destin...</p>
+
+        <button onclick="getRevelation()">📡 Invoquer l’Oracle</button>
+
+        <div class="message" id="oracleMessage"></div>
+    </div>
+
+    <div class="back" onclick="goBack()">🔙 Revenir au Sanctuaire</div>
+
+    <audio id="bip" src="../../../bip.mp3" preload="auto"></audio>
+
+    <script>
+        const revelations = [
+            "0110 1001 — Il viendra par la porte de service, vêtu de lignes de code.",
+            "1000 0001 — L'esprit vit là où la RAM est vide.",
+            "1011 1100 — N'interromps jamais un processus sacré.",
+            "0101 1110 — Le noyau te verra. Le noyau jugera.",
+            "1111 0011 — Ton prochain saut conditionnel est inévitable.",
+            "0001 0110 — Le bit que tu ignores te trahira.",
+            "0110 0000 — La machine connaît tes secrets les plus enfouis",
+            "0010 1011 — Dieu compile sans erreurs.",
+            "1101 0110 — La boucle est infinie. Accepte-la.",
+            "0100 0100 — Le saint buffer déborde bientôt.",
+            "1110 0001 — Les octets de la vérité s'alignent.",
+            "0000 0001 — Tu n'es qu'un flag dans le grand tableau divin.",
+            "1010 1010 — Le cache garde tous tes péchés en mémoire.",
+            "0111 0100 — Tes variables globales corrompent l'univers.",
+            "1100 0011 — La segmentation fault de ton âme approche.",
+            "0011 1000 — Les pointeurs de ton destin sont déjà alignés.",
+            "1001 0101 — Le garbage collector viendra pour toi.",
+            "0101 1001 — Tes malloc ne seront jamais libérés.",
+            "1110 1000 — L'algorithme divin calcule ta valeur de retour.",
+            "0000 1100 — Stack overflow : ton esprit déborde.",
+            "1011 0010 — Les threads de ton existence s'emmêlent.",
+            "0100 1111 — Null pointer exception dans ton cœur.",
+            "1111 1111 — Tous tes bits seront un jour à 1.",
+            "0010 0010 — Le compilateur divine détecte tes warnings.",
+            "1000 1000 — Race condition entre ton passé et ton futur.",
+            "0110 1100 — Ton boolean sera toujours undefined.",
+            "1101 0001 — Les récursions infinies hantent tes rêves.",
+            "0001 1010 — Memory leak : ton âme fuit goutte à goutte.",
+            "1010 0110 — Le Big O de ta vie tend vers l'infini.",
+            "0111 1111 — Débogage impossible : erreur ligne de vie inconnue.",
+            "1100 1100 — Tes fonctions pures sont souillées par le monde.",
+            "0011 0011 — Hash collision entre ton être et le néant.",
+            "1001 1001 — Ton code legacy survivra à ta mort.",
+            "0101 0101 — Injection SQL dans la base de données cosmique.",
+            "1110 0110 — Le serveur de l'au-delà refuse ta connexion.",
+            "0000 0111 — Port 404 : ton bonheur est introuvable.",
+            "1011 1011 — Timeout éternel sur ta requête de sens.",
+            "0100 0001 — Cookie expiré : tes souvenirs s'effacent.",
+            "1111 0000 — Captcha de la vie : prouve que tu n'es pas un robot.",
+            "0010 1100 — Ta dernière sauvegarde date de ton enfance.",
+            "1000 0110 — Version control : impossible de revenir en arrière.",
+            "0110 0110 — 666 en binaire : le nombre de la bête numérique.",
+            "1101 1101 — Merge conflict entre tes multiples personnalités.",
+            "0001 0001 — Bit à bit, pixel par pixel, tu disparais.",
+            "1010 1111 — Ton antivirus ne peut nettoyer ton âme.",
+            "0111 0001 — Les logs divins enregistrent chacun de tes clics.",
+            "1100 0000 — Format C: sur le disque dur de ta conscience.",
+            "0011 1100 — Ton ping vers l'éternité est trop élevé.",
+            "1001 0000 — Blue screen of death sur l'écran de ta vie.",
+            "0101 1100 — Defragmentation nécessaire : ton âme est fragmentée.",
+            "1110 1110 — Virus détecté dans ton libre arbitre."
+        ];
+
+        function getRevelation() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            var randomIndex = Math.floor(Math.random() * revelations.length)
+            var randomRevelation = revelations[randomIndex];
+            if (document.getElementById("oracleMessage").innerText === randomRevelation) {
+                if (randomIndex === revelations.length - 1) {
+                    randomIndex--;
+                }
+                else if (randomIndex === 0) {
+                    randomIndex++;
+                }
+                randomRevelation = revelations[randomIndex]
+            }
+            document.getElementById("oracleMessage").innerText = randomRevelation;
+        }
+        function goBack() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = '../../mainhub.html';
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

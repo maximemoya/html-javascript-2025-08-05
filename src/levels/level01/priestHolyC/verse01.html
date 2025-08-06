@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prière en HolyC</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffcc;
+            font-family: "Courier New", Courier, monospace;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            text-shadow: 0 0 5px #00ffff;
+            margin-bottom: 40px;
+        }
+
+        pre {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #00ffff;
+            padding: 20px;
+            white-space: pre-wrap;
+            font-size: 16px;
+        }
+
+        .verse {
+            color: #ff99ff;
+            margin: 40px auto;
+            text-align: center;
+            font-style: italic;
+            max-width: 600px;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 16px;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🕊️ Prière en HolyC</h1>
+
+    <pre>
+U0 VoiceFromHeaven()
+{
+    Print("Que la lumière du Kernel éclaire ton exécution.");
+    Print("Que les bugs soient chassés comme les démons.");
+    Print("Que le compilateur t'accorde sa miséricorde.");
+    Return(Grace);
+}
+  </pre>
+
+    <div class="verse">
+        « Le Verbe s’est fait code,
+        et le code devint Temple. »
+        <br>— HexaScriptures 3:14
+    </div>
+
+    <span class="back" onclick="goBack()">🔙 Revenir au Sanctuaire</span>
+
+</body>
+
+<audio id="bip" src="../../../../bip.mp3" preload="auto"></audio>
+
+<script>
+    function goBack() {
+        const bip = document.getElementById("bip");
+        if (bip) { bip.volume = 0.2; bip.play(); }
+        setTimeout(() => {
+            window.history.back()
+        }, 500);
+    }
+</script>
+
+</html>

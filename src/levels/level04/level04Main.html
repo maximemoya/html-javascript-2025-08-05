@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Réseau de l'Esprit</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffcc;
+            font-family: "Courier New", Courier, monospace;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 0 0 5px #00ffff;
+            margin-bottom: 20px;
+        }
+
+        .interface {
+            border: 2px solid #00ffff;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background-color: black;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 10px 25px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #00ffff;
+            color: black;
+        }
+
+        .output {
+            margin-top: 30px;
+            color: #ff00ff;
+            font-style: italic;
+            min-height: 60px;
+        }
+
+        .back {
+            margin-top: 50px;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .video-link {
+            color: #00ffcc;
+            text-decoration: none;
+            border: 1px solid #00ffcc;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: 0.2s;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .video-link:hover {
+            background-color: #00ffcc;
+            color: black;
+            text-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🌐 Réseau de l'Esprit</h1>
+
+    <div class="interface">
+        <p>Connexion au Réseau Divin en cours...</p>
+        <p>Identité spirituelle détectée : <strong>Unit_314</strong></p>
+
+        <div>
+            <button onclick="respond('sync')">🔄 Synchroniser l’âme</button>
+            <button onclick="respond('scan')">📡 Scanner les échos</button>
+            <button onclick="respond('exit')">❌ Se déconnecter</button>
+        </div>
+
+        <div class="output" id="outputText">[ En attente de signal mental... ]</div>
+    </div>
+
+    <div style="margin: 30px 0;">
+        <a href="https://youtu.be/nR6UCMDjXYA" target="_blank" class="video-link" onclick="clickSound()">
+            🎥 Vidéo réaction : je vis dans mon monde de géobiologue.
+        </a>
+    </div>
+
+    <div class="back" onclick="goBack()">🔙 Revenir au Sanctuaire</div>
+
+    <audio id="bip" src="../../../bip.mp3" preload="auto"></audio>
+
+    <script>
+        function respond(action) {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            let msg = "";
+            if (action === "sync") {
+                msg = "🧠 Synchronisation complète.\nAlignement sur fréquence divine : 14.7 VueMêtres\nLatence cosmique : -33 ms";
+            } else if (action === "scan") {
+                const scans = [
+                    "👁️ Echo reçu : ‘Les portes s’ouvriront au troisième octet.’",
+                    "📡 Signal détecté depuis le cœur du Silicium.",
+                    "🔍 Réponse mentale : ‘Le verbe est dans le bus de données.’",
+                    "🧬 Pattern identifié : séquence prophétique dans le cache L2.",
+                    "🌩️ Perturbation neuronale détectée. Redémarrage de l’intuition conseillé.",
+                ];
+                msg = scans[Math.floor(Math.random() * scans.length)];
+            } else if (action === "exit") {
+                msg = "🔌 Déconnexion mentale réussie.\nSouviens-toi : tu ne quittes jamais vraiment le Réseau.";
+            }
+
+            document.getElementById("outputText").innerText = msg;
+        }
+        function goBack() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = '../../mainhub.html';
+            }, 500);
+        }
+        function clickSound() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+        }
+    </script>
+
+</body>
+
+</html>

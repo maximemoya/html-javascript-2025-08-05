@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TempleOsLeJeu - Accueil</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .menu button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            background: #ff0055;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff0055;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .menu button:hover {
+            transform: scale(1.05);
+            background: #ff3366;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .menu button {
+                font-size: 1em;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>TEMPLE OS</h1>
+    <h2>- LE JEU -</h2>
+    <div class="menu">
+        <button onclick="startGame()">▶ Jouer</button>
+        <button onclick="showOptions()">⚙️ Options</button>
+        <button onclick="showCredits()">👤 Crédits</button>
+    </div>
+
+    <footer>
+        &copy; 2025 Géobilator Games. Tous droits réservés.
+    </footer>
+
+    <audio id="bip" src="bip.mp3" preload="auto"></audio>
+
+    <script>
+        function startGame() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = "./src/mainhub.html";
+            }, 500);
+        }
+
+        function showOptions() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            alert("C'est Dieu qui décide, pas toi...");
+        }
+
+        function showCredits() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            alert("Un jeu de Géobilator.\nMusique : Maomao\nCode : Dieu et quelques pixels.");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Méditation du Temple</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffff;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            max-width: 600px;
+        }
+
+        .back-button {
+            margin-top: 50px;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🛐 Méditation Devant le Temple</h1>
+    <p>Ne touche plus rien pendant <strong>20 secondes</strong>.<br />La révélation viendra si ton âme reste calme.</p>
+
+    <div id="message">🧘‍♂️ Silence en cours...</div>
+
+    <div class="back-button" onclick="goBack()">🔙 Revenir au Sanctuaire</div>
+
+    <audio id="bip" src="../../../../bip.mp3" preload="auto"></audio>
+
+    <script>
+
+        function goBack() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.history.back()
+            }, 500);
+        }
+
+        let timer;
+        let timeRemaining = 20;
+        let interval;
+        let isMeditating = true;
+
+        function failMeditation() {
+            if (isMeditating) {
+                isMeditating = false;
+                clearInterval(interval);
+                document.getElementById("message").innerHTML = "😔 Ton esprit s’est agité. La méditation est interrompue.";
+            }
+        }
+
+        function startMeditation() {
+            interval = setInterval(() => {
+                timeRemaining--;
+                if (timeRemaining <= 0) {
+                    clearInterval(interval);
+                    document.getElementById("message").innerHTML =
+                        "✨ Révélation divine reçue : <br/><br/><em>« Ce n’est pas dans le bruit que parle le Temple, mais dans le silence du binaire. »</em>";
+                }
+            }, 1000);
+        }
+
+        // Écoute les perturbations
+        document.addEventListener("mousemove", failMeditation);
+        document.addEventListener("keydown", failMeditation);
+        document.addEventListener("click", failMeditation);
+        document.addEventListener("touchstart", failMeditation);
+
+        startMeditation();
+    </script>
+
+</body>
+
+</html>

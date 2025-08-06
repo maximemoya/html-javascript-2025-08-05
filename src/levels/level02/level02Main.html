@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mines de Silicium</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00ffcc;
+            font-family: "Courier New", Courier, monospace;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .console-box {
+            border: 2px solid #00ffff;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .action {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .action button {
+            background: black;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 10px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action button:hover {
+            background-color: #00ffff;
+            color: black;
+        }
+
+        .response {
+            margin-top: 20px;
+            color: #ff00ff;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .back {
+            margin-top: 40px;
+            text-align: center;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🪨 Mines de Silicium</h1>
+
+    <div class="console-box">
+        <p>Vous descendez dans les profondeurs du Temple, où l’air se charge d’électricité tellurique.</p>
+        <p>Les murs suintent un code ancien, et les cristaux de silicium chantent quand vous passez près d’eux.</p>
+        <p>Devant vous : une bifurcation. Trois choix. Une décision.</p>
+
+        <div class="action">
+            <button onclick="reveal('Vous frappez la paroi. Un fragment de processeur fossilisé tombe à vos pieds.')">⛏️
+                Creuser dans la roche</button>
+            <button onclick="reveal('Une voix vous murmure : « Les circuits sont vivants. »')">🙏 Prier le Cœur des
+                Mines</button>
+            <button onclick="reveal('Vous reculez… mais les parois vibrent. Peut-on vraiment fuir le Silicium ?')">🚪
+                Fuir les profondeurs</button>
+        </div>
+
+        <div class="response" id="responseBox"></div>
+    </div>
+
+    <div class="back" onclick="goBack()">🔙 Revenir au Hub Sacré</div>
+
+    <audio id="bip" src="../../../bip.mp3" preload="auto"></audio>
+
+    <script>
+        function reveal(message) {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            document.getElementById("responseBox").innerText = message;
+        }
+        function goBack() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = '../../mainhub.html';
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

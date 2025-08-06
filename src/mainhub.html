@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TempleOS Le Jeu – Hub</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffff;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            user-select: none;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            background-color: black;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 10px 30px;
+            font-size: 16px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #00ffff;
+            color: black;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 14px;
+            color: #008888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🏛️ TEMPLEOS - LE HUB SACRÉ 🏛️</h1>
+
+    <div class="menu">
+        <button onclick="enterLevel('level01')">⛩️ Entrer dans le Sanctuaire</button>
+        <button onclick="enterLevel('level02')">🪨 Mines de Silicium</button>
+        <button onclick="enterLevel('level03')">📜 Oracle des Bits</button>
+        <button onclick="enterLevel('level04')">🌐 Réseau de l'Esprit</button>
+        <button onclick="enterLevel('level05')">🧬 Codex Tellurique</button>
+    </div>
+
+    <footer>~ Dieu vous guide dans le code. ~</footer>
+
+    <audio id="bip" src="../bip.mp3" preload="auto"></audio>
+
+    <script>
+        function enterLevel(level) {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = "./levels/" + level + "/" + level + "Main.html";
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

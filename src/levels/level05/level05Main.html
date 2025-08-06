@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Codex Tellurique</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffcc;
+            font-family: "Courier New", Courier, monospace;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 0 0 5px #00ffff;
+            margin-bottom: 30px;
+        }
+
+        .codex-box {
+            border: 2px solid #00ffff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        button {
+            background-color: black;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 10px 30px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00ffff;
+            color: black;
+        }
+
+        .fragment {
+            margin-top: 30px;
+            font-style: italic;
+            color: #ff99ff;
+            font-size: 18px;
+            min-height: 60px;
+        }
+
+        .back {
+            margin-top: 40px;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        .video-container {
+            margin: 30px auto;
+            max-width: 560px;
+        }
+
+        iframe {
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🧬 Codex Tellurique</h1>
+
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XZ7ZAVjUD1s" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="codex-box">
+        <p>Tu te tiens devant la Table des Savoirs Souterrains.</p>
+        <p>Les cristaux chuchotent des mots anciens... le Codex va parler.</p>
+
+        <button onclick="revealFragment()">📖 Lire un fragment du sol</button>
+
+        <div class="fragment" id="fragmentBox">[ Le silence des couches profondes t’écoute... ]</div>
+    </div>
+
+    <div class="back" onclick="goBack()">🔙 Revenir au Sanctuaire</div>
+
+    <audio id="bip" src="../../../bip.mp3" preload="auto"></audio>
+
+    <script>
+        const fragments = [
+            "« Là où la pierre frémit, le signal est pur. »",
+            "« Sous la terre, les lignes chantent en hexadécimal. »",
+            "« Les racines de la mémoire sont enfouies sous l’argile. »",
+            "« Ton cœur bat à la fréquence du granite. »",
+            "« Les failles sont les veines du monde. »",
+            "« Un cristal contient plus de vérité qu’un million de livres. »",
+            "« Les couches telluriques retiennent les souvenirs des dieux. »",
+            "« L'alignement des roches détermine ton destin. »",
+            "« Le noyau interne de la Terre est un processeur sacré. »",
+            "« La silice n’oublie jamais. »"
+        ];
+
+        function revealFragment() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            const r = fragments[Math.floor(Math.random() * fragments.length)];
+            document.getElementById("fragmentBox").innerText = r;
+        }
+        function goBack() {
+            const bip = document.getElementById("bip");
+            if (bip) { bip.volume = 0.2; bip.play(); }
+            setTimeout(() => {
+                window.location.href = '../../mainhub.html';
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

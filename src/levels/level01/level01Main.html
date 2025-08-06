@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sanctuaire - TempleOS Le Jeu</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ffff;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 18px;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .console-box {
+            border: 2px solid #00ffff;
+            padding: 20px;
+            margin: auto;
+            max-width: 700px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .option {
+            margin-top: 20px;
+            cursor: pointer;
+            color: #00ff88;
+            display: block;
+        }
+
+        .option:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .back-button {
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+            color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>⛩️ Le Sanctuaire</h1>
+
+    <div class="console-box">
+        <p><strong>~ Vous entrez dans une salle sacrée de silence binaire ~</strong></p>
+
+        <p>Des dalles vibrent sous vos pieds. Des lignes de code flottent dans l'air comme des prières anciennes.</p>
+
+        <p>Une voix résonne dans votre esprit :</p>
+        <blockquote>« Ici commence ton initiation. Choisis ton épreuve. »</blockquote>
+
+        <span class="option" onclick="enterPriest()">
+            👉 Lire une Prière en HolyC
+        </span>
+
+        <span class="option" onclick="enterMeditationGame()">
+            🛐 Méditer devant le Temple
+        </span>
+
+        <span class="option" onclick="enterChallenge()">
+            🚪 Passer à l’épreuve
+        </span>
+    </div>
+
+    <div class="back-button" onclick="goBack()">
+        🔙 Retour au Hub Sacré
+    </div>
+
+</body>
+
+<audio id="bip" src="../../../bip.mp3" preload="auto"></audio>
+
+<script>
+    function enterPriest() {
+        const bip = document.getElementById("bip");
+        if (bip) { bip.volume = 0.2; bip.play(); }
+        setTimeout(() => {
+            window.location.href = "./priestHolyC/verse01.html";
+        }, 500);
+    }
+    function enterMeditationGame() {
+        const bip = document.getElementById("bip");
+        if (bip) { bip.volume = 0.2; bip.play(); }
+        setTimeout(() => {
+            window.location.href = "./meditationGame/meditationGame.html";
+        }, 500);
+    }
+    function enterChallenge() {
+        const bip = document.getElementById("bip");
+        if (bip) { bip.volume = 0.2; bip.play(); }
+        setTimeout(() => {
+            window.location.href = "./challenge/challenge.html";
+        }, 500);
+    }
+    function goBack() {
+        const bip = document.getElementById("bip");
+        if (bip) { bip.volume = 0.2; bip.play(); }
+        setTimeout(() => {
+            window.location.href = '../../mainhub.html';
+        }, 500);
+    }
+</script>
+
+</html>
